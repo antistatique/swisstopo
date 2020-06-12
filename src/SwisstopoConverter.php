@@ -11,9 +11,9 @@ class SwisstopoConverter
      * Convert the given Swiss (MN95) coordinate points into WGS notation.
      *
      * @param int $east
-     *                   The East Swiss (MN95) coordinate point
+     *   The East Swiss (MN95) coordinate point
      * @param int $north
-     *                   The North Swiss (MN95) coordinate point
+     *   The North Swiss (MN95) coordinate point
      *
      * @return array
      *   The array containing WGS latitude & longitude coordinates
@@ -30,9 +30,9 @@ class SwisstopoConverter
      * Convert the given WGS coordinate points into Swiss (MN95) notation.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return array
      *   The array containing Swiss (MN95) East & North coordinates
@@ -49,9 +49,9 @@ class SwisstopoConverter
      * Convert the given Swiss (MN03) coordinate points into WGS notation.
      *
      * @param int $y
-     *               The Y Swiss (MN03) coordinate point
+     *   The Y Swiss (MN03) coordinate point
      * @param int $x
-     *               The X Swiss (MN03) coordinate point
+     *   The X Swiss (MN03) coordinate point
      *
      * @return array
      *   The array containing WGS latitude & longitude coordinates
@@ -68,9 +68,9 @@ class SwisstopoConverter
      * Convert the given WGS coordinate points into Swiss (MN03) notation.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return array
      *   The array containing Swiss (MN03) x & y coordinates
@@ -87,9 +87,9 @@ class SwisstopoConverter
      * Convert WGS coordinates latitude & longitude into Swiss (MN03) Y value.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return float
      *   The converted WGS coordinates to Swiss (MN03) Y
@@ -120,9 +120,9 @@ class SwisstopoConverter
      * Convert WGS coordinates latitude & longitude into Swiss (MN03) X value.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return float
      *   The converted WGS coordinates to Swiss (MN03) X
@@ -154,9 +154,9 @@ class SwisstopoConverter
      * Convert WGS coordinates latitude & longitude into Swiss (MN95) North value.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return float
      *   The converted WGS coordinates to Swiss (MN95) North
@@ -189,9 +189,9 @@ class SwisstopoConverter
      * Convert WGS coordinates latitude & longitude into Swiss (MN95) East value.
      *
      * @param float $lat
-     *                    The WGS latitude coordinate point in degree
+     *   The WGS latitude coordinate point in degree
      * @param float $long
-     *                    The WGS longitude coordinate point in degree
+     *   The WGS longitude coordinate point in degree
      *
      * @return float
      *   The converted WGS coordinates to Swiss (MN95) East
@@ -223,9 +223,9 @@ class SwisstopoConverter
      * Convert Swiss (MN95) coordinates East & North to WGS latitude value.
      *
      * @param int $east
-     *                   The East Swiss (MN95) coordinate point
+     *   The East Swiss (MN95) coordinate point
      * @param int $north
-     *                   The North Swiss (MN95) coordinate point
+     *   The North Swiss (MN95) coordinate point
      *
      * @return float
      *   The converted Swiss (MN95) coordinates to WGS latitude
@@ -255,9 +255,9 @@ class SwisstopoConverter
      * Convert Swiss (MN95) coordinates East & North to WGS longitude value.
      *
      * @param int $east
-     *                   The East Swiss (MN95) coordinate point
+     *   The East Swiss (MN95) coordinate point
      * @param int $north
-     *                   The North Swiss (MN95) coordinate point
+     *   The North Swiss (MN95) coordinate point
      *
      * @return float
      *   The converted Swiss (MN95) coordinates to WGS longitude
@@ -286,9 +286,9 @@ class SwisstopoConverter
      * Convert Swiss (MN03) coordinates y & x to WGS latitude value.
      *
      * @param int $y
-     *               The Y Swiss (MN03) coordinate point
+     *   The Y Swiss (MN03) coordinate point
      * @param int $x
-     *               The X Swiss (MN03) coordinate point
+     *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS latitude
@@ -318,9 +318,9 @@ class SwisstopoConverter
      * Convert Swiss (MN03) coordinates y & x to WGS longitude value.
      *
      * @param int $y
-     *               The Y Swiss (MN03) coordinate point
+     *   The Y Swiss (MN03) coordinate point
      * @param int $x
-     *               The X Swiss (MN03) coordinate point
+     *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS longitude
@@ -349,7 +349,7 @@ class SwisstopoConverter
      * Convert Decimal Degrees to Sexagesimal Degrees.
      *
      * @param float|int $angle
-     *                         The Decimal Degrees notation of angle to convert in Sexagesimal notation
+     *   The Decimal Degrees notation of angle to convert in Sexagesimal notation
      *
      * @return float|int
      *   The converted Decimal Degrees to Sexagesimal Degrees
@@ -369,7 +369,7 @@ class SwisstopoConverter
      * Convert Decimal Degrees to Seconds of Arc (seconds only of D°M'S").
      *
      * @param float|int $angle
-     *                         The Decimal Degrees notation of angle to convert in Seconds of Arc
+     *   The Decimal Degrees notation of angle to convert in Seconds of Arc
      *
      * @return float|int
      *   The converted Decimal Degrees to Seconds of Arc

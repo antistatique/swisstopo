@@ -10,7 +10,7 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@Symfony' => true,
         'array_syntax' => ['syntax' => 'short'],
-        'phpdoc_align' => ['align' => 'vertical', 'tags' => ['param', 'type', 'var']],
+        'phpdoc_align' => ['align' => 'vertical', 'tags' => ['type', 'var']],
     ])
     ->setFinder($finder)
 ;
