@@ -13,9 +13,6 @@ Requires PHP 7.2+.
 
 [![Build Status](https://travis-ci.org/antistatique/swisstopo.svg?branch=master)](https://travis-ci.org/antistatique/swisstopo)
 [![StyleCI](https://github.styleci.io/repos/207270598/shield?branch=master)](https://github.styleci.io/repos/207270598)
-[![Coverage Status](https://coveralls.io/repos/github/antistatique/swisstopo/badge.svg?branch=master)](https://coveralls.io/github/antistatique/swisstopo?branch=master)
-[![Packagist](https://img.shields.io/packagist/dt/antistatique/swisstopo.svg?maxAge=2592000)](https://packagist.org/packages/antistatique/swisstopo)
-[![License](https://poser.pugx.org/antistatique/swisstopo/license)](https://packagist.org/packages/antistatique/swisstopo)
 
 Getting started
 ------------
