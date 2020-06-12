@@ -70,7 +70,7 @@ jobs:
       - run: ./vendor/bin/psalm --output-format=github
 
   security-checker:
-    name: php-cs-fixer
+    name: security-checker
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP

@@ -41,6 +41,8 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
 
     /**
      * @covers ::fromMN03ToWGSLatitude
+     *
+     * @throws \ReflectionException
      */
     public function testFromMN03ToWGSLatitude(): void
     {
@@ -51,6 +53,8 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
 
     /**
      * @covers ::fromMN03ToWGSLongitude
+     *
+     * @throws \ReflectionException
      */
     public function testFromMN03ToWGSLongitude(): void
     {
@@ -61,6 +65,8 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
 
     /**
      * @covers ::fromWGSToMN03x
+     *
+     * @throws \ReflectionException
      */
     public function testFromWGSToMN03x(): void
     {
@@ -71,6 +77,8 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
 
     /**
      * @covers ::fromWGSToMN03y
+     *
+     * @throws \ReflectionException
      */
     public function testFromWGSToMN03y(): void
     {
