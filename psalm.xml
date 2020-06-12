@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<psalm
+  autoloader="web/autoload-psalm.php"
+  totallyTyped="false"
+  requireVoidReturnType="false"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="https://getpsalm.org/schema/config"
+  xsi:schemaLocation="https://getpsalm.org/schema/config file:///app/vendor/vimeo/psalm/config.xsd">
+
+  <projectFiles>
+    <directory name="src" />
+    <directory name="tests" />
+
+    <ignoreFiles>
+      <directory name="vendor" />
+    </ignoreFiles>
+  </projectFiles>
+
+  <fileExtensions>
+    <extension name="php" />
+    <extension name="inc" />
+  </fileExtensions>
+
+  <issueHandlers>
+    <!-- level 3 issues - slightly lazy code writing, but provably low false-negatives -->
+    <DeprecatedInterface errorLevel="info" />
+    <PropertyNotSetInConstructor errorLevel="info" />
+    <NoInterfaceProperties errorLevel="info" />
+    <MoreSpecificReturnType errorLevel="info" />
+    <LessSpecificReturnStatement errorLevel="info" />
+    <MissingConstructor errorLevel="info" />
+
+    <!-- Suppress some errors -->
+    <!-- @see https://github.com/vimeo/psalm/blob/master/docs/dealing_with_code_issues.md -->
+  </issueHandlers>
+
+</psalm>
