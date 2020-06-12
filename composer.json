@@ -1,0 +1,45 @@
+{
+    "name": "antistatique/swisstopo",
+    "description": "Convert GPS (WGS84) to Swiss (LV03 and LV95) coordinates (and vice versa)",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7.0.*",
+        "phpunit/php-code-coverage": "^6.0",
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phpmd/phpmd": "^2.8",
+        "sebastian/phpcpd": "^4.0",
+        "sensiolabs/security-checker": "^5.0",
+        "php-coveralls/php-coveralls": "^2.1",
+        "php-mock/php-mock-phpunit": "^2.4",
+        "vimeo/psalm": "^3.11",
+        "phpstan/phpstan-deprecation-rules": "^0.12.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Antistatique\\Swisstopo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Antistatique\\Swisstopo\\Tests\\": "tests/"
+        }
+    },
+    "homepage": "https://github.com/antistatique/swisstopo",
+    "authors": [
+        {
+            "name": "Antistatique SA",
+            "email": "info@antistatique.net",
+            "homepage": "https://www.antistatique.net",
+            "role": "Sponsor"
+        },
+        {
+            "name": "Kevin Wenger",
+            "email": "contact@kevin-wenger.ch",
+            "homepage": "http://kevin-wenger.ch",
+            "role": "Author & Maintainer"
+        }
+    ]
+}

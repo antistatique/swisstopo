@@ -1,0 +1,11 @@
+parameters:
+  # Ignore tests
+  excludes_analyse:
+    - *Test.php
+    - *TestBase.php
+  # PHPStan Level 1
+  level: 1
+
+includes:
+  # Add the phpstan deprecation rules.
+  - vendor/phpstan/phpstan-deprecation-rules/rules.neon
