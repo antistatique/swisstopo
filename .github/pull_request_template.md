@@ -14,6 +14,3 @@ Steps to review the PR:
 
 ### 📸 Screenshots
 If applicable, add screenshots to help explain the task.
-
-### 🌩 API Swagger documentation
-If applicable, add swagger API endpoints to help explain the usage.
