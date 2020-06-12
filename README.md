@@ -5,7 +5,7 @@ Super-simple PHP library to transpose GPS (WGS84) coordinates to/from the Swiss 
 systems CH1903/LV03 (MN03) or CH1995/LV95 (MN95).
 
 In this library, the approximate formulas have been used for the direct conversion of ellipsoidal WGS84 coordinates to
-Swiss plane coordinates CH1903/LV03 (MN03) or CH1995/LV95 (MN95).
+Swiss plane coordinates.
 
 These formulas are primarily for navigation purposes and may not be used for official or geodetic survey applications!
 
