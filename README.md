@@ -1,7 +1,7 @@
 Convert World Coordinates to Swiss Coordinates - and vice versa
 =============
 
-[![Build Status](https://travis-ci.org/antistatique/swisstopo.svg?branch=dev)](https://travis-ci.org/antistatique/swisstopo)
+[![Build Status](https://travis-ci.com/antistatique/swisstopo.svg?branch=dev)](https://travis-ci.com/antistatique/swisstopo)
 [![StyleCI](https://github.styleci.io/repos/207270598/shield?branch=master)](https://github.styleci.io/repos/207270598)
 [![Coverage Status](https://coveralls.io/repos/github/antistatique/swisstopo/badge.svg?branch=dev)](https://coveralls.io/github/antistatique/swisstopo?branch=dev)
 [![Packagist](https://img.shields.io/packagist/dt/antistatique/swisstopo.svg?maxAge=2592000)](https://packagist.org/packages/antistatique/swisstopo)
