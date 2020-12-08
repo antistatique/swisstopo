@@ -40,7 +40,7 @@ jobs:
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@master
       - run: composer install --prefer-dist
-      - run: ./vendor/bin/phpcpd ./ --names=*.php,*.inc,*.test --names-exclude=*.md --ansi --exclude=vendor --exclude=bin --exclude=tests
+      - run: ./vendor/bin/phpcpd ./ --suffix .php --suffix .inc --suffix .test --exclude vendor --exclude bin --exclude tests
 
   phpstan:
     name: phpstan
