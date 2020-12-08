@@ -19,4 +19,9 @@
       <directory suffix=".php">src</directory>
     </whitelist>
   </filter>
+  <php>
+    <!-- Temporarily preventing https://github.com/xdebug/xdebug/pull/699 -->
+    <const name="XDEBUG_CC_UNUSED"  value=""/>
+    <const name="XDEBUG_CC_DEAD_CODE"  value=""/>
+  </php>
 </phpunit>
