@@ -36,8 +36,8 @@ class SwisstopoConverterTests extends TestCase
     public function decimalDegreesToSexagesimalProvider()
     {
         return [
-        [12.76389, 12.4550004],
-      ];
+            [12.76389, 12.4550004],
+        ];
     }
 
     /**
@@ -63,11 +63,11 @@ class SwisstopoConverterTests extends TestCase
     public function decimalDegreesToSecondsOfArcProvider()
     {
         return [
-        [1, 3600],
-        [1.24, 5040],
-        [360, 1.296e+6],
-        [-12, -43200],
-        ['1.24', 5040],
-      ];
+            [1, 3600],
+            [1.24, 5040],
+            [360, 1.296e+6],
+            [-12, -43200],
+            ['1.24', 5040],
+        ];
     }
 }

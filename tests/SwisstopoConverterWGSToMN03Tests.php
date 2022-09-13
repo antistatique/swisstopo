@@ -21,9 +21,9 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $swiss_converter = new SwisstopoConverter();
         $coordinates = $swiss_converter->fromMN03ToWGS(554680, 145807);
         $this->assertSame([
-      'lat' => 46.462057617639346,
-      'long' => 6.848673659076181,
-    ], $coordinates);
+            'lat' => 46.462057617639346,
+            'long' => 6.848673659076181,
+        ], $coordinates);
     }
 
     /**
@@ -34,9 +34,9 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $swiss_converter = new SwisstopoConverter();
         $coordinates = $swiss_converter->fromWGSToMN03(46.462057617639, 6.8486736590762);
         $this->assertSame([
-      'x' => 145807.4339423232,
-      'y' => 554679.5530031546,
-    ], $coordinates);
+            'x' => 145807.4339423232,
+            'y' => 554679.5530031546,
+        ], $coordinates);
     }
 
     /**
