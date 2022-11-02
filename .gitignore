@@ -17,3 +17,4 @@
 # PHPCS cache files
 .php_cs.cache
 .phpcs-cache
+composer.lock

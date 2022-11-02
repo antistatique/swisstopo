@@ -14,7 +14,7 @@
         "sensiolabs/security-checker": "^5.0",
         "php-coveralls/php-coveralls": "^2.1",
         "php-mock/php-mock-phpunit": "^2.4",
-        "vimeo/psalm": "^3.11",
+        "vimeo/psalm": "^4.29",
         "phpstan/phpstan-deprecation-rules": "^0.12.2"
     },
     "autoload": {
