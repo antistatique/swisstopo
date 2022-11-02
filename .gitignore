@@ -18,3 +18,4 @@
 .php_cs.cache
 .phpcs-cache
 composer.lock
+.php-cs-fixer.cache
