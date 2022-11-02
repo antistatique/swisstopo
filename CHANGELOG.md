@@ -1,6 +1,10 @@
 CHANGELOG
 ---------
 
+## 0.0.2-alpha (2022-11-02)
+ - fixed deprecations for development
+ - fixed deprecations for PHP 8.1
+
 ## 0.0.1-alpha (2020-06-12)
  - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
  - allow conversion of GPS (WGS84) coordinates from/to CH1995/LV95 (MN95)
