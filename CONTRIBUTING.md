@@ -37,14 +37,14 @@ It can modernize your code (like converting the pow function to the ** operator 
 ./vendor/bin/phpstan analyse ./ --error-format=checkstyle
 ```
 
-### Asserts Security Vulnerabilities
+<!-- ### Asserts Security Vulnerabilities
 
 The [SensioLabs Security Checker](https://github.com/sensiolabs/security-checker) is a command line tool that checks
 if the application uses dependencies with known security vulnerabilitie.
 
 ```bash
 ./vendor/bin/security-checker security:check ./composer.lock
-```
+``` -->
 
 ### Improve global code quality using PHPCPD (Code duplication) &  PHPMD (PHP Mess Detector)
 
