@@ -1,6 +1,12 @@
 Convert World Coordinates to Swiss Coordinates - and vice versa
 =============
 
+[![Coverage Status](https://coveralls.io/repos/github/antistatique/swisstopo/badge.svg?branch=dev)](https://coveralls.io/github/antistatique/swisstopo?branch=dev)
+[![Build](https://github.com/antistatique/swisstopo/actions/workflows/tests.yml/badge.svg)](https://github.com/antistatique/swisstopo/actions/workflows/tests.yml)
+[![Packagist](https://img.shields.io/packagist/dt/antistatique/swisstopo.svg?maxAge=2592000)](https://packagist.org/packages/antistatique/swisstopo)
+[![License](https://poser.pugx.org/antistatique/swisstopo/license)](https://packagist.org/packages/antistatique/swisstopo)
+[![PHP Versions Supported](https://img.shields.io/badge/php-%3E%3D%208.0-8892BF.svg)](https://packagist.org/packages/antistatique/swisstopo)
+
 Super-simple PHP library to transpose GPS (WGS84) coordinates to/from the Swiss military and civilian coordinate
 systems CH1903/LV03 (MN03) or CH1995/LV95 (MN95).
 
@@ -8,11 +14,6 @@ In this library, the approximate formulas have been used for the direct conversi
 Swiss plane coordinates.
 
 These formulas are primarily for navigation purposes and may not be used for official or geodetic survey applications!
-
-Requires PHP 7.2+.
-
-[![Build Status](https://travis-ci.org/antistatique/swisstopo.svg?branch=master)](https://travis-ci.org/antistatique/swisstopo)
-[![StyleCI](https://github.styleci.io/repos/207270598/shield?branch=master)](https://github.styleci.io/repos/207270598)
 
 Getting started
 ------------

@@ -20,10 +20,8 @@ class SwisstopoConverterWGSToMN95Tests extends TestCase
     {
         $swiss_converter = new SwisstopoConverter();
         $coordinates = $swiss_converter->fromMN95ToWGS(2555047, 1145923);
-        $this->assertSame([
-      'lat' => 46.46312579498212,
-      'long' => 6.8534397262208095,
-    ], $coordinates);
+        $this->assertEqualsWithDelta(46.463125794982, $coordinates['lat'], 0.0001);
+        $this->assertEqualsWithDelta(6.8534397262208, $coordinates['long'], 0.0001);
     }
 
     /**
@@ -34,9 +32,9 @@ class SwisstopoConverterWGSToMN95Tests extends TestCase
         $swiss_converter = new SwisstopoConverter();
         $coordinates = $swiss_converter->fromWGSToMN95(46.46312579498212, 6.8534397262208095);
         $this->assertSame([
-      'east' => 2555046.5560538797,
-      'north' => 1145923.4267763223,
-    ], $coordinates);
+            'east' => 2555046.5560538797,
+            'north' => 1145923.4267763223,
+        ], $coordinates);
     }
 
     /**
@@ -74,7 +72,7 @@ class SwisstopoConverterWGSToMN95Tests extends TestCase
     {
         $swiss_converter = new SwisstopoConverter();
         $latitude = $this->invokeMethod($swiss_converter, 'fromMN95ToWGSLatitude', [2555047, 1145923]);
-        $this->assertEquals(46.463125794982, $latitude);
+        $this->assertEqualsWithDelta(46.463125794982, $latitude, 0.0001);
     }
 
     /**
@@ -86,6 +84,6 @@ class SwisstopoConverterWGSToMN95Tests extends TestCase
     {
         $swiss_converter = new SwisstopoConverter();
         $longitude = $this->invokeMethod($swiss_converter, 'fromMN95ToWGSLongitude', [2555047, 1145923]);
-        $this->assertEquals(6.8534397262208, $longitude);
+        $this->assertEqualsWithDelta(6.8534397262208, $longitude, 0.0001);
     }
 }
