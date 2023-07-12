@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - update changelog following 'keep a changelog' format
 - run code-styles Github Actions on PHP 8.1
+- update symfony checker to use new symfonycorp/security-checker-action
 
 ### Added
 - add run of tests on Github Actions

@@ -12,7 +12,7 @@ jobs:
           php-version: '8.0'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
       - run: ./vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 
@@ -25,7 +25,7 @@ jobs:
         with:
           php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
 
@@ -38,7 +38,7 @@ jobs:
         with:
           php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpcpd ./ --suffix .php --suffix .inc --suffix .test --exclude vendor --exclude bin --exclude tests
 
@@ -52,7 +52,7 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: phpstan, cs2pr
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpstan analyse ./src ./tests --error-format=checkstyle | cs2pr
 
@@ -65,7 +65,7 @@ jobs:
         with:
           php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
       - run: ./vendor/bin/psalm --output-format=github
 
@@ -76,9 +76,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
-          extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-          tools: php-cs-fixer, cs2pr
-      - uses: actions/checkout@master
+          tools: composer:v2
+      - uses: actions/checkout@v2
       - run: composer install --prefer-dist
-      - run: ./vendor/bin/security-checker security:check ./composer.lock
+      - uses: symfonycorp/security-checker-action@v3

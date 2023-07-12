@@ -15,6 +15,3 @@ echo "\n🙏  \033[0;32mRunning Psalm ...\033[0m"
 
 echo "\n👻  \033[0;32mRunning PHPStan ...\033[0m"
 ./vendor/bin/phpstan analyse ./src ./tests --error-format=checkstyle
-
-echo "\n⛔  \033[0;32mRunning SensioLabs Security Checker ...\033[0m"
-./vendor/bin/security-checker security:check ./composer.lock
