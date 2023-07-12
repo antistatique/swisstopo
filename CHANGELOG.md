@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add dependabot
 
+### Removed
+- remove sensiolabs/security-checker from direct dependency
+
 ## [0.0.1] - 2023-07-12
 ### Fixed
 - fixed deprecations for development
