@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - remove Travis integration for tests
 - remove StyleCI integration
+- remove support for PHP 7.4
 
 ## [0.0.1-alpha] - 2020-06-12
 ### Added
