@@ -1,0 +1,4 @@
+service_name: github-actions
+
+# for php-coveralls
+coverage_clover: build/logs/clover.xml

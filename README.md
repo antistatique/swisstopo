@@ -1,6 +1,7 @@
 Convert World Coordinates to Swiss Coordinates - and vice versa
 =============
 
+[![Coverage Status](https://coveralls.io/repos/github/antistatique/swisstopo/badge.svg?branch=dev)](https://coveralls.io/github/antistatique/swisstopo?branch=dev)
 [![Build](https://github.com/antistatique/swisstopo/actions/workflows/tests.yml/badge.svg)](https://github.com/antistatique/swisstopo/actions/workflows/tests.yml)
 [![Packagist](https://img.shields.io/packagist/dt/antistatique/swisstopo.svg?maxAge=2592000)](https://packagist.org/packages/antistatique/swisstopo)
 [![License](https://poser.pugx.org/antistatique/swisstopo/license)](https://packagist.org/packages/antistatique/swisstopo)
