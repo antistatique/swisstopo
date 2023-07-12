@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
       - uses: actions/checkout@master
@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@master
       - run: composer install --prefer-dist
@@ -34,9 +34,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@master
       - run: composer install --prefer-dist
@@ -47,9 +47,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: phpstan, cs2pr
       - uses: actions/checkout@master
@@ -61,9 +61,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@master
       - run: composer install --prefer-dist
@@ -74,9 +74,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v1
+        uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
+          php-version: '8.1'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
       - uses: actions/checkout@master

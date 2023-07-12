@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - update changelog following 'keep a changelog' format
+- run code-styles Github Actions on PHP 8.1
 
 ### Added
 - add run of tests on Github Actions
