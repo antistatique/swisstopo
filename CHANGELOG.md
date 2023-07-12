@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - remove sensiolabs/security-checker from direct dependency
 
+### Security
+- update friendsofphp/php-cs-fixer (v3.4.0 => v3.21.1)
+
 ## [0.0.1] - 2023-07-12
 ### Fixed
 - fixed deprecations for development
