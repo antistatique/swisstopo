@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - add run of tests on Github Actions
 
+### Removed
+- remove Travis integration for tests
+- remove StyleCI integration
+
 ## [0.0.1-alpha] - 2020-06-12
 ### Added
 - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
