@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- fixed deprecations for development
+- fixed deprecations for PHP 8.1
+
 ### Changed
 - update changelog following 'keep a changelog' format
 - run code-styles Github Actions on PHP 8.1
@@ -18,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - remove Travis integration for tests
 - remove StyleCI integration
+- remove support for PHP 7.4
 
 ## [0.0.1-alpha] - 2020-06-12
 ### Added

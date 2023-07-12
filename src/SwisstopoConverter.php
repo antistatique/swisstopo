@@ -10,20 +10,20 @@ class SwisstopoConverter
     /**
      * Convert the given Swiss (MN95) coordinate points into WGS notation.
      *
-     * @param int $east
+     * @param float|int $east
      *   The East Swiss (MN95) coordinate point
-     * @param int $north
+     * @param float|int $north
      *   The North Swiss (MN95) coordinate point
      *
      * @return array
      *   The array containing WGS latitude & longitude coordinates
      */
-    public static function fromMN95ToWGS(int $east, int $north): array
+    public static function fromMN95ToWGS(float|int $east, float|int $north): array
     {
         return [
-      'lat' => self::fromMN95ToWGSLatitude($east, $north),
-      'long' => self::fromMN95ToWGSLongitude($east, $north),
-    ];
+          'lat' => self::fromMN95ToWGSLatitude($east, $north),
+          'long' => self::fromMN95ToWGSLongitude($east, $north),
+        ];
     }
 
     /**
@@ -40,9 +40,9 @@ class SwisstopoConverter
     public static function fromWGSToMN95(float $lat, float $long): array
     {
         return [
-      'east' => self::fromWGSToMN95East($lat, $long),
-      'north' => self::fromWGSToMN95North($lat, $long),
-    ];
+          'east' => self::fromWGSToMN95East($lat, $long),
+          'north' => self::fromWGSToMN95North($lat, $long),
+        ];
     }
 
     /**
@@ -59,9 +59,9 @@ class SwisstopoConverter
     public static function fromMN03ToWGS(int $y, int $x): array
     {
         return [
-      'lat' => self::fromMN03ToWGSLatitude($y, $x),
-      'long' => self::fromMN03ToWGSLongitude($y, $x),
-    ];
+          'lat' => self::fromMN03ToWGSLatitude($y, $x),
+          'long' => self::fromMN03ToWGSLongitude($y, $x),
+        ];
     }
 
     /**
@@ -78,9 +78,9 @@ class SwisstopoConverter
     public static function fromWGSToMN03(float $lat, float $long): array
     {
         return [
-      'x' => self::fromWGSToMN03x($lat, $long),
-      'y' => self::fromWGSToMN03y($lat, $long),
-    ];
+          'x' => self::fromWGSToMN03x($lat, $long),
+          'y' => self::fromWGSToMN03y($lat, $long),
+        ];
     }
 
     /**
@@ -110,10 +110,10 @@ class SwisstopoConverter
 
         // Process Swiss (MN03) Y calculation.
         return 600072.37
-      + 211455.93 * $long_aux
-      - 10938.51 * $long_aux * $lat_aux
-      - 0.36 * $long_aux * pow($lat_aux, 2)
-      - 44.54 * pow($long_aux, 3);
+          + 211455.93 * $long_aux
+          - 10938.51 * $long_aux * $lat_aux
+          - 0.36 * $long_aux * pow($lat_aux, 2)
+          - 44.54 * pow($long_aux, 3);
     }
 
     /**
@@ -143,11 +143,11 @@ class SwisstopoConverter
 
         // Process Swiss (MN03) X calculation.
         return 200147.07
-      + 308807.95 * $lat_aux
-      + 3745.25 * pow($long_aux, 2)
-      + 76.63 * pow($lat_aux, 2)
-      - 194.56 * pow($long_aux, 2) * $lat_aux
-      + 119.79 * pow($lat_aux, 3);
+          + 308807.95 * $lat_aux
+          + 3745.25 * pow($long_aux, 2)
+          + 76.63 * pow($lat_aux, 2)
+          - 194.56 * pow($long_aux, 2) * $lat_aux
+          + 119.79 * pow($lat_aux, 3);
     }
 
     /**
@@ -178,11 +178,11 @@ class SwisstopoConverter
 
         // Process Swiss (MN95) North calculation.
         return 1200147.07
-      + 308807.95 * $phi_aux
-      + 3745.25 * pow($lambda_aux, 2)
-      + 76.63 * pow($phi_aux, 2)
-      - 194.56 * pow($lambda_aux, 2) * $phi_aux
-      + 119.79 * pow($phi_aux, 3);
+          + 308807.95 * $phi_aux
+          + 3745.25 * pow($lambda_aux, 2)
+          + 76.63 * pow($phi_aux, 2)
+          - 194.56 * pow($lambda_aux, 2) * $phi_aux
+          + 119.79 * pow($phi_aux, 3);
     }
 
     /**
@@ -213,24 +213,24 @@ class SwisstopoConverter
 
         // Process Swiss (MN95) East calculation.
         return 2600072.37
-      + 211455.93 * $lambda_aux
-      - 10938.51 * $lambda_aux * $phi_aux
-      - 0.36 * $lambda_aux * pow($phi_aux, 2)
-      - 44.54 * pow($lambda_aux, 3);
+          + 211455.93 * $lambda_aux
+          - 10938.51 * $lambda_aux * $phi_aux
+          - 0.36 * $lambda_aux * pow($phi_aux, 2)
+          - 44.54 * pow($lambda_aux, 3);
     }
 
     /**
      * Convert Swiss (MN95) coordinates East & North to WGS latitude value.
      *
-     * @param int $east
+     * @param float|int $east
      *   The East Swiss (MN95) coordinate point
-     * @param int $north
+     * @param float|int $north
      *   The North Swiss (MN95) coordinate point
      *
      * @return float
      *   The converted Swiss (MN95) coordinates to WGS latitude
      */
-    public static function fromMN95ToWGSLatitude(int $east, int $north): float
+    public static function fromMN95ToWGSLatitude(float|int $east, float|int $north): float
     {
         // Convert the projection coordinates E (easting) and N (northing) in MN95
         // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
@@ -239,11 +239,11 @@ class SwisstopoConverter
 
         // Process latitude calculation.
         $lat = 16.9023892
-      + 3.238272 * $x_aux
-      - 0.270978 * pow($y_aux, 2)
-      - 0.002528 * pow($x_aux, 2)
-      - 0.0447 * pow($y_aux, 2) * $x_aux
-      - 0.0140 * pow($x_aux, 3);
+          + 3.238272 * $x_aux
+          - 0.270978 * pow($y_aux, 2)
+          - 0.002528 * pow($x_aux, 2)
+          - 0.0447 * pow($y_aux, 2) * $x_aux
+          - 0.0140 * pow($x_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
         $lat = $lat * 100 / 36;
@@ -254,15 +254,15 @@ class SwisstopoConverter
     /**
      * Convert Swiss (MN95) coordinates East & North to WGS longitude value.
      *
-     * @param int $east
+     * @param float|int $east
      *   The East Swiss (MN95) coordinate point
-     * @param int $north
+     * @param float|int $north
      *   The North Swiss (MN95) coordinate point
      *
      * @return float
      *   The converted Swiss (MN95) coordinates to WGS longitude
      */
-    private static function fromMN95ToWGSLongitude(int $east, int $north): float
+    private static function fromMN95ToWGSLongitude(float|int $east, float|int $north): float
     {
         // Convert the projection coordinates E (easting) and N (northing) in MN95
         // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
@@ -271,10 +271,10 @@ class SwisstopoConverter
 
         // Process longitude calculation.
         $long = 2.6779094
-      + 4.728982 * $y_aux
-      + 0.791484 * $y_aux * $x_aux
-      + 0.1306 * $y_aux * pow($x_aux, 2)
-      - 0.0436 * pow($y_aux, 3);
+          + 4.728982 * $y_aux
+          + 0.791484 * $y_aux * $x_aux
+          + 0.1306 * $y_aux * pow($x_aux, 2)
+          - 0.0436 * pow($y_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
         $long = $long * 100 / 36;
@@ -285,15 +285,15 @@ class SwisstopoConverter
     /**
      * Convert Swiss (MN03) coordinates y & x to WGS latitude value.
      *
-     * @param int $y
+     * @param float $y
      *   The Y Swiss (MN03) coordinate point
-     * @param int $x
+     * @param float $x
      *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS latitude
      */
-    public static function fromMN03ToWGSLatitude(int $y, int $x): float
+    public static function fromMN03ToWGSLatitude(float $y, float $x): float
     {
         // Convert the projection coordinates y and x in MN03 into the civilian
         // system (Bern = 0 / 0) and express in the unit [1000 km].
@@ -302,11 +302,11 @@ class SwisstopoConverter
 
         // Process latitude calculation.
         $lat = 16.9023892
-      + 3.238272 * $x_aux
-      - 0.270978 * pow($y_aux, 2)
-      - 0.002528 * pow($x_aux, 2)
-      - 0.0447 * pow($y_aux, 2) * $x_aux
-      - 0.0140 * pow($x_aux, 3);
+          + 3.238272 * $x_aux
+          - 0.270978 * pow($y_aux, 2)
+          - 0.002528 * pow($x_aux, 2)
+          - 0.0447 * pow($y_aux, 2) * $x_aux
+          - 0.0140 * pow($x_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
         $lat = $lat * 100 / 36;
@@ -317,15 +317,15 @@ class SwisstopoConverter
     /**
      * Convert Swiss (MN03) coordinates y & x to WGS longitude value.
      *
-     * @param int $y
+     * @param float $y
      *   The Y Swiss (MN03) coordinate point
-     * @param int $x
+     * @param float $x
      *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS longitude
      */
-    private static function fromMN03ToWGSLongitude(int $y, int $x): float
+    private static function fromMN03ToWGSLongitude(float $y, float $x): float
     {
         // Convert the projection coordinates y and x in MN03 into the civilian
         // system (Bern = 0 / 0) and express in the unit [1000 km].
@@ -334,10 +334,10 @@ class SwisstopoConverter
 
         // Process longitude calculation.
         $long = 2.6779094
-      + 4.728982 * $y_aux
-      + 0.791484 * $y_aux * $x_aux
-      + 0.1306 * $y_aux * pow($x_aux, 2)
-      - 0.0436 * pow($y_aux, 3);
+          + 4.728982 * $y_aux
+          + 0.791484 * $y_aux * $x_aux
+          + 0.1306 * $y_aux * pow($x_aux, 2)
+          - 0.0436 * pow($y_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
         $long = $long * 100 / 36;
@@ -354,7 +354,7 @@ class SwisstopoConverter
      * @return float|int
      *   The converted Decimal Degrees to Sexagesimal Degrees
      */
-    private static function degToSex($angle)
+    private static function degToSex(float|int $angle): float|int
     {
         // Extract D°M'S".
         $deg = (int) $angle;
@@ -374,7 +374,7 @@ class SwisstopoConverter
      * @return float|int
      *   The converted Decimal Degrees to Seconds of Arc
      */
-    private static function degToSec($angle)
+    private static function degToSec(float|int $angle): float|int
     {
         // Extract D°M'S".
         $deg = (int) $angle;

@@ -32,9 +32,9 @@ class SwisstopoConverterWGSToMN95Tests extends TestCase
         $swiss_converter = new SwisstopoConverter();
         $coordinates = $swiss_converter->fromWGSToMN95(46.46312579498212, 6.8534397262208095);
         $this->assertSame([
-      'east' => 2555046.5560538797,
-      'north' => 1145923.4267763223,
-    ], $coordinates);
+            'east' => 2555046.5560538797,
+            'north' => 1145923.4267763223,
+        ], $coordinates);
     }
 
     /**
