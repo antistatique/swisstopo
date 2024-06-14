@@ -21,8 +21,8 @@ class SwisstopoConverter
     public static function fromMN95ToWGS(float|int $east, float|int $north): array
     {
         return [
-          'lat' => self::fromMN95ToWGSLatitude($east, $north),
-          'long' => self::fromMN95ToWGSLongitude($east, $north),
+            'lat' => self::fromMN95ToWGSLatitude($east, $north),
+            'long' => self::fromMN95ToWGSLongitude($east, $north),
         ];
     }
 
@@ -40,8 +40,8 @@ class SwisstopoConverter
     public static function fromWGSToMN95(float $lat, float $long): array
     {
         return [
-          'east' => self::fromWGSToMN95East($lat, $long),
-          'north' => self::fromWGSToMN95North($lat, $long),
+            'east' => self::fromWGSToMN95East($lat, $long),
+            'north' => self::fromWGSToMN95North($lat, $long),
         ];
     }
 
@@ -59,8 +59,8 @@ class SwisstopoConverter
     public static function fromMN03ToWGS(int $y, int $x): array
     {
         return [
-          'lat' => self::fromMN03ToWGSLatitude($y, $x),
-          'long' => self::fromMN03ToWGSLongitude($y, $x),
+            'lat' => self::fromMN03ToWGSLatitude($y, $x),
+            'long' => self::fromMN03ToWGSLongitude($y, $x),
         ];
     }
 
@@ -78,8 +78,8 @@ class SwisstopoConverter
     public static function fromWGSToMN03(float $lat, float $long): array
     {
         return [
-          'x' => self::fromWGSToMN03x($lat, $long),
-          'y' => self::fromWGSToMN03y($lat, $long),
+            'x' => self::fromWGSToMN03x($lat, $long),
+            'y' => self::fromWGSToMN03y($lat, $long),
         ];
     }
 
