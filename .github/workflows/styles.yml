@@ -1,5 +1,8 @@
-name: code-styles
-on: [pull_request]
+name: Code styles
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * THU'
 
 jobs:
   php-cs-fixer:
