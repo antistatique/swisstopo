@@ -2,7 +2,7 @@ name: Tests
 on:
   push:
   schedule:
-    - cron: "0 0 * * THU"
+    - cron: '0 0 * * THU'
 
 jobs:
   tests:
@@ -10,14 +10,14 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ['8.0', '8.1']
+        php-versions: ['8.0', '8.1', '8.2', '8.3']
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-versions }}

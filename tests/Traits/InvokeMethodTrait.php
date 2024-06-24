@@ -2,8 +2,6 @@
 
 namespace Antistatique\Swisstopo\Tests\Traits;
 
-use ReflectionClass;
-
 /**
  * Provides a function to invoke protected/private methods of a class.
  */
@@ -21,14 +19,14 @@ trait InvokeMethodTrait
      * @param array  $protected_properties
      *                                     Array of values that should be set on protected properties
      *
-     * @throws \ReflectionException
-     *
      * @return mixed
      *   Method return
+     *
+     * @throws \ReflectionException
      */
     protected function invokeMethod(&$object, $method_name, array $parameters = [], array $protected_properties = [])
     {
-        $reflection = new ReflectionClass(\get_class($object));
+        $reflection = new \ReflectionClass(\get_class($object));
 
         foreach ($protected_properties as $property => $value) {
             $property = $reflection->getProperty($property);

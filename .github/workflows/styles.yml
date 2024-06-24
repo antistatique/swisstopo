@@ -1,5 +1,8 @@
-name: code-styles
-on: [pull_request]
+name: Code styles
+on:
+  push:
+  schedule:
+    - cron: '0 0 * * THU'
 
 jobs:
   php-cs-fixer:
@@ -9,7 +12,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: '8.2'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
       - uses: actions/checkout@v2
@@ -23,7 +26,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@v2
       - run: composer install --prefer-dist
@@ -36,7 +39,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@v2
       - run: composer install --prefer-dist
@@ -49,7 +52,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: phpstan, cs2pr
       - uses: actions/checkout@v2
@@ -63,7 +66,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
       - uses: actions/checkout@v2
       - run: composer install --prefer-dist
