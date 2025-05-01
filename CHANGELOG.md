@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - remove styleCI integration in favor of Github Actions and linters
 
+### Added
+- add tests on PHP 8.4
+
 ## [1.0.0] - 2024-06-24
 ### Added
 - add dependabot
