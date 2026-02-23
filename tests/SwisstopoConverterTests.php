@@ -4,22 +4,22 @@ namespace Antistatique\Swisstopo\Tests;
 
 use Antistatique\Swisstopo\SwisstopoConverter;
 use Antistatique\Swisstopo\Tests\Traits\InvokeMethodTrait;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversMethod;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Antistatique\Swisstopo\SwisstopoConverter
+ * @internal
  */
+#[CoversClass(SwisstopoConverter::class)]
+#[CoversMethod(SwisstopoConverter::class, 'degToSex')]
+#[CoversMethod(SwisstopoConverter::class, 'degToSec')]
 class SwisstopoConverterTests extends TestCase
 {
     use InvokeMethodTrait;
 
-    /**
-     * @covers ::degToSex
-     *
-     * @dataProvider decimalDegreesToSexagesimalProvider
-     *
-     * @throws \ReflectionException
-     */
+    #[DataProvider('decimalDegreesToSexagesimalProvider')]
     public function testDegToSex($degrees, $expected): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -33,20 +33,12 @@ class SwisstopoConverterTests extends TestCase
      * @return array
      *   The collection of input and expected converted value
      */
-    public function decimalDegreesToSexagesimalProvider()
+    public static function decimalDegreesToSexagesimalProvider(): iterable
     {
-        return [
-            [12.76389, 12.4550004],
-        ];
+        yield [12.76389, 12.4550004];
     }
 
-    /**
-     * @covers ::degToSec
-     *
-     * @dataProvider decimalDegreesToSecondsOfArcProvider
-     *
-     * @throws \ReflectionException
-     */
+    #[DataProvider('decimalDegreesToSecondsOfArcProvider')]
     public function testDegToSec($degrees, $expected): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -60,14 +52,12 @@ class SwisstopoConverterTests extends TestCase
      * @return array
      *   The collection of input and expected converted value
      */
-    public function decimalDegreesToSecondsOfArcProvider()
+    public static function decimalDegreesToSecondsOfArcProvider(): iterable
     {
-        return [
-            [1, 3600],
-            [1.24, 5040],
-            [360, 1.296e+6],
-            [-12, -43200],
-            ['1.24', 5040],
-        ];
+        yield [1, 3600];
+        yield [1.24, 5040];
+        yield [360, 1.296e+6];
+        yield [-12, -43200];
+        yield ['1.24', 5040];
     }
 }

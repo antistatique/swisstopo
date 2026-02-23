@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" colors="true" failOnRisky="true" failOnWarning="true" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-  <coverage processUncoveredFiles="true">
+<phpunit backupGlobals="false"
+         colors="true"
+         failOnRisky="true"
+         failOnWarning="true"
+         stopOnFailure="false"
+         displayDetailsOnTestsThatTriggerDeprecations="true"
+         displayDetailsOnPhpunitDeprecations="true"
+         displayDetailsOnPhpunitNotices="true"
+         displayDetailsOnTestsThatTriggerNotices="true"
+         displayDetailsOnTestsThatTriggerWarnings="true">
+  <testsuites>
+    <testsuite name="Swisstopo Test Suite">
+      <directory suffix=".php">./tests/</directory>
+      <exclude>./tests/Traits/</exclude>
+    </testsuite>
+  </testsuites>
+  <source>
     <include>
       <directory suffix=".php">src</directory>
     </include>
+  </source>
+  <coverage>
     <report>
       <clover outputFile="./build/logs/clover.xml"/>
       <html outputDirectory="./build/logs/coverage-html"/>
     </report>
   </coverage>
-  <testsuites>
-    <testsuite name="Swisstopo Test Suite">
-      <directory suffix=".php">./tests/</directory>
-    </testsuite>
-  </testsuites>
-  <logging/>
   <php>
     <!-- Temporarily preventing https://github.com/xdebug/xdebug/pull/699 -->
-    <const name="XDEBUG_CC_UNUSED" value=""/>
-    <const name="XDEBUG_CC_DEAD_CODE" value="-1"/>
+    <const name="XDEBUG_CC_UNUSED"  value=""/>
+    <const name="XDEBUG_CC_DEAD_CODE"  value="-1"/>
   </php>
 </phpunit>
