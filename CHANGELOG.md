@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - upgrade phpstan/phpstan (0.12.100 => 2.1.39)
 
+### Changed
+- remove deprecated usage of ReflectionProperty::setAccessible since PHP8.1
+
 ## [1.0.2] - 2025-06-03
 ### Added
 - add tests coverage for PHP 8.4
