@@ -1,21 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Antistatique\Swisstopo\Tests;
 
 use Antistatique\Swisstopo\SwisstopoConverter;
 use Antistatique\Swisstopo\Tests\Traits\InvokeMethodTrait;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Antistatique\Swisstopo\SwisstopoConverter
+ * @internal
  */
+#[CoversClass(SwisstopoConverter::class)]
+#[CoversMethod(SwisstopoConverter::class, 'fromMN03ToWGS')]
+#[CoversMethod(SwisstopoConverter::class, 'fromWGSToMN03')]
+#[CoversMethod(SwisstopoConverter::class, 'fromMN03ToWGSLatitude')]
+#[CoversMethod(SwisstopoConverter::class, 'fromMN03ToWGSLongitude')]
+#[CoversMethod(SwisstopoConverter::class, 'fromWGSToMN03x')]
+#[CoversMethod(SwisstopoConverter::class, 'fromWGSToMN03y')]
 class SwisstopoConverterWGSToMN03Tests extends TestCase
 {
     use InvokeMethodTrait;
 
-    /**
-     * @covers ::fromMN03ToWGS
-     */
     public function testFromMN03ToWGS(): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -24,9 +32,6 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $this->assertEqualsWithDelta(6.8486736590762, $coordinates['long'], 0.0001);
     }
 
-    /**
-     * @covers ::fromWGSToMN03
-     */
     public function testFromWGSToMN03(): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -37,11 +42,6 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         ], $coordinates);
     }
 
-    /**
-     * @covers ::fromMN03ToWGSLatitude
-     *
-     * @throws \ReflectionException
-     */
     public function testFromMN03ToWGSLatitude(): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -49,11 +49,6 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $this->assertEqualsWithDelta(46.462057617639, $latitude, 0.0001);
     }
 
-    /**
-     * @covers ::fromMN03ToWGSLongitude
-     *
-     * @throws \ReflectionException
-     */
     public function testFromMN03ToWGSLongitude(): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -61,11 +56,6 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $this->assertEqualsWithDelta(6.8486736590762, $longitude, 0.0001);
     }
 
-    /**
-     * @covers ::fromWGSToMN03x
-     *
-     * @throws \ReflectionException
-     */
     public function testFromWGSToMN03x(): void
     {
         $swiss_converter = new SwisstopoConverter();
@@ -73,11 +63,6 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
         $this->assertEquals(145807.4339423232, $x);
     }
 
-    /**
-     * @covers ::fromWGSToMN03y
-     *
-     * @throws \ReflectionException
-     */
     public function testFromWGSToMN03y(): void
     {
         $swiss_converter = new SwisstopoConverter();

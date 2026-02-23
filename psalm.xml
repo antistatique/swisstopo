@@ -1,28 +1,18 @@
 <?xml version="1.0"?>
 <psalm
   errorLevel="1"
-  autoloader="vendor/autoload.php"
-  requireVoidReturnType="false"
+  resolveFromConfigFile="true"
+  findUnusedBaselineEntry="true"
+  findUnusedCode="true"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="https://getpsalm.org/schema/config"
-  xsi:schemaLocation="https://getpsalm.org/schema/config file:///app/vendor/vimeo/psalm/config.xsd">
-
+  xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
   <projectFiles>
     <directory name="src" />
-
     <ignoreFiles>
       <directory name="vendor" />
+      <directory name="bin" />
     </ignoreFiles>
   </projectFiles>
-
-  <fileExtensions>
-    <extension name="php" />
-    <extension name="inc" />
-  </fileExtensions>
-
-  <issueHandlers>
-    <!-- Suppress some errors -->
-    <!-- @see https://github.com/vimeo/psalm/blob/master/docs/dealing_with_code_issues.md -->
-  </issueHandlers>
-
 </psalm>

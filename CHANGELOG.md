@@ -5,6 +5,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- add tests coverage for PHP 8.5
+- upgrade vimeo/psalm (4.30.0 = => 6.15.1)
+
+### Removed
+- removed support PHP 8.0
+- removed support PHP 8.1
+- removed support PHP 8.2
+- remove phpcpd as abandoned
+- remove unused php-mock/php-mock-phpunit
+
+### Security
+- upgrade phpstan/phpstan (0.12.100 => 2.1.39)
+- upgrade phpunit/php-code-coverage (9.2.32 => 12.5.3)
+- upgrade phpunit/phpunit (9.6.34 => 12.5.14)
+
+### Changed
+- remove deprecated usage of ReflectionProperty::setAccessible since PHP8.1
 
 ## [1.0.2] - 2025-06-03
 ### Added
