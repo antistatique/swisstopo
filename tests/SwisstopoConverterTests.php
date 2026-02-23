@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Antistatique\Swisstopo\Tests;
 
 use Antistatique\Swisstopo\SwisstopoConverter;
@@ -30,7 +32,7 @@ class SwisstopoConverterTests extends TestCase
     /**
      * Collection of Decimal Degrees notation converted to Sexagesimal notation.
      *
-     * @return array
+     * @return iterable<array<mixed>>
      *   The collection of input and expected converted value
      */
     public static function decimalDegreesToSexagesimalProvider(): iterable
@@ -49,7 +51,7 @@ class SwisstopoConverterTests extends TestCase
     /**
      * Collection of Decimal Degrees notation converted to Seconds of Arc.
      *
-     * @return array
+     * @return iterable<array<mixed>>
      *   The collection of input and expected converted value
      */
     public static function decimalDegreesToSecondsOfArcProvider(): iterable

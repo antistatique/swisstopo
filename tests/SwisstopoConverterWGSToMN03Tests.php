@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Antistatique\Swisstopo\Tests;
 
 use Antistatique\Swisstopo\SwisstopoConverter;
