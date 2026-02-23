@@ -6,6 +6,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-02-23
+### Added
+- add tests coverage for PHP 8.5
+- upgrade vimeo/psalm (4.30.0 = => 6.15.1)
+
+### Removed
+- removed support PHP 8.0
+- removed support PHP 8.1
+- removed support PHP 8.2
+- remove phpcpd as abandoned
+- remove unused php-mock/php-mock-phpunit
+
+### Security
+- upgrade phpstan/phpstan (0.12.100 => 2.1.39)
+- upgrade phpunit/php-code-coverage (9.2.32 => 12.5.3)
+- upgrade phpunit/phpunit (9.6.34 => 12.5.14)
+
+### Changed
+- remove deprecated usage of ReflectionProperty::setAccessible since PHP8.1
+
 ## [1.0.2] - 2025-06-03
 ### Added
 - add tests coverage for PHP 8.4
@@ -53,7 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
 - allow conversion of GPS (WGS84) coordinates from/to CH1995/LV95 (MN95)
 
-[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/antistatique/swisstopo/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/antistatique/swisstopo/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/antistatique/swisstopo/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/antistatique/swisstopo/compare/0.0.1...1.0.0

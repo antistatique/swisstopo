@@ -12,10 +12,10 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: composer install --prefer-dist
       - run: ./vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 
@@ -26,24 +26,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
-
-  phpcpd:
-    name: phpcpd
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.3'
-          extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v2
-      - run: composer install --prefer-dist
-      - run: ./vendor/bin/phpcpd ./ --suffix .php --suffix .inc --suffix .test --exclude vendor --exclude bin --exclude tests
 
   phpstan:
     name: phpstan
@@ -52,10 +39,10 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: phpstan, cs2pr
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpstan analyse ./src ./tests --error-format=checkstyle | cs2pr
 
@@ -66,9 +53,9 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.3'
+          php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: composer install --prefer-dist
       - run: ./vendor/bin/psalm --output-format=github
 
@@ -80,6 +67,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           tools: composer:v2
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - run: composer install --prefer-dist
       - uses: symfonycorp/security-checker-action@v3

@@ -13,6 +13,22 @@ Pull requests for bugs are more than welcome - please explain the bug you're try
 
 ## Developing
 
+## 🧪 Running tests
+
+Run the test suite without code coverage (no Xdebug required):
+
+```bash
+./vendor/bin/phpunit --no-coverage
+```
+
+Run the test suite with code coverage (requires [Xdebug](https://xdebug.org/) or [PCOV](https://github.com/krakjoe/pcov)):
+
+```bash
+XDEBUG_MODE=coverage ./vendor/bin/phpunit
+```
+
+> **Note:** Running `./vendor/bin/phpunit` without `--no-coverage` and without a coverage driver will fail with _"No code coverage driver available"_. Use `--no-coverage` for day-to-day local development.
+
 ## 🚔 Check Symfony 4 coding standards & best practices
 
 You need to run composer before using [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).
@@ -37,18 +53,12 @@ It can modernize your code (like converting the pow function to the ** operator 
 ./vendor/bin/phpstan analyse ./ --error-format=checkstyle
 ```
 
-### Improve global code quality using PHPCPD (Code duplication) &  PHPMD (PHP Mess Detector)
+### Improve global code quality using PHPMD (PHP Mess Detector)
 
 Detect overcomplicated expressions & Unused parameters, methods, properties
 
 ```bash
 ./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
-```
-
-Copy/Paste Detector
-
-```bash
-./vendor/bin/phpcpd ./ --names=*.php,*.inc,*.test --names-exclude=*.md --ansi --exclude=vendor --exclude=bin --exclude=tests
 ```
 
 ### Checks compatibility with PHP interpreter versions
