@@ -1,6 +1,6 @@
 parameters:
   # Ignore tests
-  excludes_analyse:
+  excludePaths:
     - *Test.php
     - *TestBase.php
   # PHPStan Level 1
