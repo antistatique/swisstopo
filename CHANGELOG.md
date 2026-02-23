@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - removed support PHP 8.0
+- remove phpcpd as abandoned
 
 ## [1.0.2] - 2025-06-03
 ### Added

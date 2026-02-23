@@ -32,19 +32,6 @@ jobs:
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
 
-  phpcpd:
-    name: phpcpd
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.5'
-          extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v2
-      - run: composer install --prefer-dist
-      - run: ./vendor/bin/phpcpd ./ --suffix .php --suffix .inc --suffix .test --exclude vendor --exclude bin --exclude tests
-
   phpstan:
     name: phpstan
     runs-on: ubuntu-latest
