@@ -13,6 +13,22 @@ Pull requests for bugs are more than welcome - please explain the bug you're try
 
 ## Developing
 
+## 🧪 Running tests
+
+Run the test suite without code coverage (no Xdebug required):
+
+```bash
+./vendor/bin/phpunit --no-coverage
+```
+
+Run the test suite with code coverage (requires [Xdebug](https://xdebug.org/) or [PCOV](https://github.com/krakjoe/pcov)):
+
+```bash
+XDEBUG_MODE=coverage ./vendor/bin/phpunit
+```
+
+> **Note:** Running `./vendor/bin/phpunit` without `--no-coverage` and without a coverage driver will fail with _"No code coverage driver available"_. Use `--no-coverage` for day-to-day local development.
+
 ## 🚔 Check Symfony 4 coding standards & best practices
 
 You need to run composer before using [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer).

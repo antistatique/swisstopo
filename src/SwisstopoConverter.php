@@ -4,6 +4,8 @@ namespace Antistatique\Swisstopo;
 
 /**
  * Convert GPS (WGS84) to Swiss (LV03 or LV95) coordinates - and vice versa.
+ *
+ * @psalm-api
  */
 class SwisstopoConverter
 {
@@ -105,8 +107,8 @@ class SwisstopoConverter
         $long = self::degToSec($long);
 
         // Auxiliary values (% Bern).
-        $lat_aux = ($lat - 169028.66) / 10000;
-        $long_aux = ($long - 26782.5) / 10000;
+        $lat_aux = ($lat - 169028.66) / 10000.0;
+        $long_aux = ($long - 26782.5) / 10000.0;
 
         // Process Swiss (MN03) Y calculation.
         return 600072.37
@@ -138,8 +140,8 @@ class SwisstopoConverter
         $long = self::degToSec($long);
 
         // Auxiliary values (% Bern).
-        $lat_aux = ($lat - 169028.66) / 10000;
-        $long_aux = ($long - 26782.5) / 10000;
+        $lat_aux = ($lat - 169028.66) / 10000.0;
+        $long_aux = ($long - 26782.5) / 10000.0;
 
         // Process Swiss (MN03) X calculation.
         return 200147.07
@@ -173,8 +175,8 @@ class SwisstopoConverter
 
         // Calculate the auxiliary values (differences of latitude and longitude
         // relative to Bern in the unit[10000"]).
-        $phi_aux = ($phi - 169028.66) / 10000;
-        $lambda_aux = ($lambda - 26782.5) / 10000;
+        $phi_aux = ($phi - 169028.66) / 10000.0;
+        $lambda_aux = ($lambda - 26782.5) / 10000.0;
 
         // Process Swiss (MN95) North calculation.
         return 1200147.07
@@ -208,8 +210,8 @@ class SwisstopoConverter
 
         // Calculate the auxiliary values (differences of latitude and longitude
         // relative to Bern in the unit[10000"]).
-        $phi_aux = ($phi - 169028.66) / 10000;
-        $lambda_aux = ($lambda - 26782.5) / 10000;
+        $phi_aux = ($phi - 169028.66) / 10000.0;
+        $lambda_aux = ($lambda - 26782.5) / 10000.0;
 
         // Process Swiss (MN95) East calculation.
         return 2600072.37
@@ -234,8 +236,8 @@ class SwisstopoConverter
     {
         // Convert the projection coordinates E (easting) and N (northing) in MN95
         // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
-        $y_aux = ($east - 2600000) / 1000000;
-        $x_aux = ($north - 1200000) / 1000000;
+        $y_aux = ((float) $east - 2600000.0) / 1000000.0;
+        $x_aux = ((float) $north - 1200000.0) / 1000000.0;
 
         // Process latitude calculation.
         $lat = 16.9023892
@@ -246,7 +248,7 @@ class SwisstopoConverter
           - 0.0140 * pow($x_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
-        $lat = $lat * 100 / 36;
+        $lat = $lat * 100.0 / 36.0;
 
         return $lat;
     }
@@ -266,8 +268,8 @@ class SwisstopoConverter
     {
         // Convert the projection coordinates E (easting) and N (northing) in MN95
         // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
-        $y_aux = ($east - 2600000) / 1000000;
-        $x_aux = ($north - 1200000) / 1000000;
+        $y_aux = ((float) $east - 2600000.0) / 1000000.0;
+        $x_aux = ((float) $north - 1200000.0) / 1000000.0;
 
         // Process longitude calculation.
         $long = 2.6779094
@@ -277,7 +279,7 @@ class SwisstopoConverter
           - 0.0436 * pow($y_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
-        $long = $long * 100 / 36;
+        $long = $long * 100.0 / 36.0;
 
         return $long;
     }
@@ -297,8 +299,8 @@ class SwisstopoConverter
     {
         // Convert the projection coordinates y and x in MN03 into the civilian
         // system (Bern = 0 / 0) and express in the unit [1000 km].
-        $y_aux = ($y - 600000) / 1000000;
-        $x_aux = ($x - 200000) / 1000000;
+        $y_aux = ($y - 600000.0) / 1000000.0;
+        $x_aux = ($x - 200000.0) / 1000000.0;
 
         // Process latitude calculation.
         $lat = 16.9023892
@@ -309,7 +311,7 @@ class SwisstopoConverter
           - 0.0140 * pow($x_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
-        $lat = $lat * 100 / 36;
+        $lat = $lat * 100.0 / 36.0;
 
         return $lat;
     }
@@ -329,8 +331,8 @@ class SwisstopoConverter
     {
         // Convert the projection coordinates y and x in MN03 into the civilian
         // system (Bern = 0 / 0) and express in the unit [1000 km].
-        $y_aux = ($y - 600000) / 1000000;
-        $x_aux = ($x - 200000) / 1000000;
+        $y_aux = ($y - 600000.0) / 1000000.0;
+        $x_aux = ($x - 200000.0) / 1000000.0;
 
         // Process longitude calculation.
         $long = 2.6779094
@@ -340,7 +342,7 @@ class SwisstopoConverter
           - 0.0436 * pow($y_aux, 3);
 
         // Unit 10000" to 1" and converts seconds to degrees notation.
-        $long = $long * 100 / 36;
+        $long = $long * 100.0 / 36.0;
 
         return $long;
     }
@@ -351,18 +353,20 @@ class SwisstopoConverter
      * @param float|int $angle
      *   The Decimal Degrees notation of angle to convert in Sexagesimal notation
      *
-     * @return float|int
+     * @return float
      *   The converted Decimal Degrees to Sexagesimal Degrees
      */
-    private static function degToSex(float|int $angle): float|int
+    private static function degToSex(float|int $angle): float
     {
+        $angle = (float) $angle;
+
         // Extract D°M'S".
         $deg = (int) $angle;
-        $min = (int) (($angle - $deg) * 60);
-        $sec = ((($angle - $deg) * 60) - $min) * 60;
+        $min = (int) (($angle - (float) $deg) * 60.0);
+        $sec = ((($angle - (float) $deg) * 60.0) - (float) $min) * 60.0;
 
         // Result in degrees sec (dd.mmss)
-        return $deg + $min / 100 + $sec / 10000;
+        return (float) $deg + (float) $min / 100.0 + $sec / 10000.0;
     }
 
     /**
@@ -371,17 +375,19 @@ class SwisstopoConverter
      * @param float|int $angle
      *   The Decimal Degrees notation of angle to convert in Seconds of Arc
      *
-     * @return float|int
+     * @return float
      *   The converted Decimal Degrees to Seconds of Arc
      */
-    private static function degToSec(float|int $angle): float|int
+    private static function degToSec(float|int $angle): float
     {
+        $angle = (float) $angle;
+
         // Extract D°M'S".
         $deg = (int) $angle;
-        $min = (int) (($angle - $deg) * 100);
-        $sec = ((($angle - $deg) * 100) - $min) * 100;
+        $min = (int) (($angle - (float) $deg) * 100.0);
+        $sec = ((($angle - (float) $deg) * 100.0) - (float) $min) * 100.0;
 
         // Result in degrees sec (dd.mmss).
-        return $sec + $min * 60 + $deg * 3600;
+        return $sec + (float) $min * 60.0 + (float) $deg * 3600.0;
     }
 }

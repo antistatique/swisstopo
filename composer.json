@@ -13,7 +13,7 @@
         "sebastian/phpcpd": "^6.0",
         "php-coveralls/php-coveralls": "^2.1",
         "php-mock/php-mock-phpunit": "^2.4",
-        "vimeo/psalm": "^4.29",
+        "vimeo/psalm": "^6.0",
         "phpstan/phpstan-deprecation-rules": "^0.12.2"
     },
     "autoload": {
