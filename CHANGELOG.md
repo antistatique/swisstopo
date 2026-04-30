@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-30
+### Removed
+- build(php): removed support PHP 8.3
+
+### Security
+- update(phpunit): phpunit/phpunit (12.5.14 => 12.5.23)
+- update(linter): friendsofphp/php-cs-fixer (v3.94.2 => v3.95.1)
+- update(linter): vimeo/psalm (6.15.1 => 6.16.1)
+- test(update): upgrade phpunit/phpunit (12.5.23 => 13.1.7)
+
 ## [1.1.0] - 2026-02-23
 ### Added
 - add tests coverage for PHP 8.5
@@ -73,7 +83,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
 - allow conversion of GPS (WGS84) coordinates from/to CH1995/LV95 (MN95)
 
-[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/antistatique/swisstopo/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/antistatique/swisstopo/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/antistatique/swisstopo/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/antistatique/swisstopo/compare/1.0.0...1.0.1

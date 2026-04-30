@@ -3,11 +3,11 @@
     "description": "Convert GPS (WGS84) to Swiss (LV03 and LV95) coordinates (and vice versa)",
     "license": "MIT",
     "require": {
-        "php": ">=8.3"
+        "php": ">=8.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^12",
-        "phpunit/php-code-coverage": "^12",
+        "phpunit/phpunit": "^13",
+        "phpunit/php-code-coverage": "^14",
         "friendsofphp/php-cs-fixer": "^3.21",
         "phpmd/phpmd": "^2.8",
         "php-coveralls/php-coveralls": "^2.1",
