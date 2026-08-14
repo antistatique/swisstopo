@@ -75,4 +75,4 @@ jobs:
           tools: composer:v2
       - uses: actions/checkout@v7
       - run: composer install --prefer-dist
-      - uses: symfonycorp/security-checker-action@v3
+      - uses: symfonycorp/security-checker-action@v5
