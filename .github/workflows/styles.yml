@@ -1,6 +1,8 @@
 name: Code styles
 on:
   push:
+    branches: [main, dev]
+  pull_request:
   schedule:
     - cron: '0 0 * * THU'
 
