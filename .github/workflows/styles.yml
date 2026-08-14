@@ -1,8 +1,14 @@
 name: Code styles
 on:
   push:
+    branches: [main, dev]
+  pull_request:
   schedule:
     - cron: '0 0 * * THU'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   php-cs-fixer:

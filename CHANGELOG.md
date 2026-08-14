@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
+- ci(workflows): run tests and code styles on pull requests, including those opened from a fork
+
+### Changed
+- ci(workflows): cancel superseded workflow runs on the same branch
 - ci(dependabot): fix composer updates never being proposed
 
 ## [1.2.0] - 2026-04-30
