@@ -21,7 +21,7 @@ jobs:
           php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: php-cs-fixer, cs2pr
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: composer install --prefer-dist
       - run: ./vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
 
@@ -34,7 +34,7 @@ jobs:
         with:
           php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
 
@@ -48,7 +48,7 @@ jobs:
           php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
           tools: phpstan, cs2pr
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: composer install --prefer-dist
       - run: ./vendor/bin/phpstan analyse ./src ./tests --error-format=checkstyle | cs2pr
 
@@ -61,7 +61,7 @@ jobs:
         with:
           php-version: '8.5'
           extensions: mbstring, intl, gd, xml, dom, json, fileinfo, curl, zip, iconv
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: composer install --prefer-dist
       - run: ./vendor/bin/psalm --output-format=github
 
@@ -73,6 +73,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           tools: composer:v2
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: composer install --prefer-dist
-      - uses: symfonycorp/security-checker-action@v3
+      - uses: symfonycorp/security-checker-action@v5
