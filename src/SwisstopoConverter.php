@@ -19,7 +19,7 @@ class SwisstopoConverter
      * @param float|int $north
      *   The North Swiss (MN95) coordinate point
      *
-     * @return array
+     * @return array{lat: float, long: float}
      *   The array containing WGS latitude & longitude coordinates
      */
     public static function fromMN95ToWGS(float|int $east, float|int $north): array
@@ -38,7 +38,7 @@ class SwisstopoConverter
      * @param float $long
      *   The WGS longitude coordinate point in degree
      *
-     * @return array
+     * @return array{east: float, north: float}
      *   The array containing Swiss (MN95) East & North coordinates
      */
     public static function fromWGSToMN95(float $lat, float $long): array
@@ -57,7 +57,7 @@ class SwisstopoConverter
      * @param int $x
      *   The X Swiss (MN03) coordinate point
      *
-     * @return array
+     * @return array{lat: float, long: float}
      *   The array containing WGS latitude & longitude coordinates
      */
     public static function fromMN03ToWGS(int $y, int $x): array
@@ -76,7 +76,7 @@ class SwisstopoConverter
      * @param float $long
      *   The WGS longitude coordinate point in degree
      *
-     * @return array
+     * @return array{x: float, y: float}
      *   The array containing Swiss (MN03) x & y coordinates
      */
     public static function fromWGSToMN03(float $lat, float $long): array
