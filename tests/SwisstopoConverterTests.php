@@ -22,17 +22,17 @@ class SwisstopoConverterTests extends TestCase
     use InvokeMethodTrait;
 
     #[DataProvider('decimalDegreesToSexagesimalProvider')]
-    public function testDegToSex($degrees, $expected): void
+    public function testDegToSex(float $degrees, float $expected): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $sexagesimal = $this->invokeMethod($swiss_converter, 'degToSex', [$degrees]);
+        $sexagesimal = $this->invokeFloatMethod($swiss_converter, 'degToSex', [$degrees]);
         $this->assertEquals($expected, $sexagesimal);
     }
 
     /**
      * Collection of Decimal Degrees notation converted to Sexagesimal notation.
      *
-     * @return iterable<array<mixed>>
+     * @return iterable<array{float, float}>
      *   The collection of input and expected converted value
      */
     public static function decimalDegreesToSexagesimalProvider(): iterable
@@ -41,17 +41,17 @@ class SwisstopoConverterTests extends TestCase
     }
 
     #[DataProvider('decimalDegreesToSecondsOfArcProvider')]
-    public function testDegToSec($degrees, $expected): void
+    public function testDegToSec(float|int|string $degrees, float|int $expected): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $seconds = $this->invokeMethod($swiss_converter, 'degToSec', [$degrees]);
+        $seconds = $this->invokeFloatMethod($swiss_converter, 'degToSec', [$degrees]);
         $this->assertEquals($expected, $seconds);
     }
 
     /**
      * Collection of Decimal Degrees notation converted to Seconds of Arc.
      *
-     * @return iterable<array<mixed>>
+     * @return iterable<array{float|int|string, float|int}>
      *   The collection of input and expected converted value
      */
     public static function decimalDegreesToSecondsOfArcProvider(): iterable
