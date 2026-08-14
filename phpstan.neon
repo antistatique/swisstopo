@@ -1,9 +1,6 @@
 parameters:
-  # Ignore tests
-  excludePaths:
-    - tests
-  # PHPStan Level 1
-  level: 1
+  # PHPStan Level 10
+  level: 10
 
 includes:
   # Add the phpstan deprecation rules.

@@ -7,12 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - ci(workflows): run tests and code styles on pull requests, including those opened from a fork
-- ci(phpstan): fix excludePaths never excluding the tests
+- ci(phpstan): analyse the tests instead of excluding them through patterns that never matched
 
 ### Changed
 - ci(workflows): cancel superseded workflow runs on the same branch
 - ci(dependabot): fix composer updates never being proposed
 - refactor(types): declare array shapes on the converter return types
+- ci(phpstan): raise the analysis level from 1 to 10
+- test(types): type the data provider parameters of the converter tests
+- test(traits): add invokeFloatMethod() to assert the return type of the invoked method
 
 ## [1.2.0] - 2026-04-30
 ### Removed

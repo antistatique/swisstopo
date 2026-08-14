@@ -45,28 +45,28 @@ class SwisstopoConverterWGSToMN03Tests extends TestCase
     public function testFromMN03ToWGSLatitude(): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $latitude = $this->invokeMethod($swiss_converter, 'fromMN03ToWGSLatitude', [554680, 145807]);
+        $latitude = $this->invokeFloatMethod($swiss_converter, 'fromMN03ToWGSLatitude', [554680, 145807]);
         $this->assertEqualsWithDelta(46.462057617639, $latitude, 0.0001);
     }
 
     public function testFromMN03ToWGSLongitude(): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $longitude = $this->invokeMethod($swiss_converter, 'fromMN03ToWGSLongitude', [554680, 145807]);
+        $longitude = $this->invokeFloatMethod($swiss_converter, 'fromMN03ToWGSLongitude', [554680, 145807]);
         $this->assertEqualsWithDelta(6.8486736590762, $longitude, 0.0001);
     }
 
     public function testFromWGSToMN03x(): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $x = $this->invokeMethod($swiss_converter, 'fromWGSToMN03x', [46.462057617639, 6.8486736590762]);
+        $x = $this->invokeFloatMethod($swiss_converter, 'fromWGSToMN03x', [46.462057617639, 6.8486736590762]);
         $this->assertEquals(145807.4339423232, $x);
     }
 
     public function testFromWGSToMN03y(): void
     {
         $swiss_converter = new SwisstopoConverter();
-        $y = $this->invokeMethod($swiss_converter, 'fromWGSToMN03y', [46.462057617639, 6.8486736590762]);
+        $y = $this->invokeFloatMethod($swiss_converter, 'fromWGSToMN03y', [46.462057617639, 6.8486736590762]);
         $this->assertEquals(554679.5530031546, $y);
     }
 }
