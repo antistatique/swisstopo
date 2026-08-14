@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - ci(workflows): run tests and code styles on pull requests, including those opened from a fork
+- ci(phpstan): fix excludePaths never excluding the tests
 
 ### Changed
 - ci(workflows): cancel superseded workflow runs on the same branch

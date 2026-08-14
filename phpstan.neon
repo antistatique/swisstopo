@@ -1,8 +1,7 @@
 parameters:
   # Ignore tests
   excludePaths:
-    - *Test.php
-    - *TestBase.php
+    - tests
   # PHPStan Level 1
   level: 1
 
