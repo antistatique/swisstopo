@@ -1,7 +1,4 @@
 parameters:
-  # Ignore tests
-  excludePaths:
-    - tests
   # PHPStan Level 10
   level: 10
 
