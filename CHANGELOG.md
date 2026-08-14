@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ci(workflows): cancel superseded workflow runs on the same branch
 - ci(dependabot): fix composer updates never being proposed
 - refactor(types): declare array shapes on the converter return types
+- ci(phpstan): raise the analysis level from 1 to 10
 
 ## [1.2.0] - 2026-04-30
 ### Removed
