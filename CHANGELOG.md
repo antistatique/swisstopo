@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.2.1] - 2026-08-14
 ### Fixed
 - ci(workflows): run tests and code styles on pull requests, including those opened from a fork
 - ci(phpstan): analyse the tests instead of excluding them through patterns that never matched
@@ -94,7 +96,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
 - allow conversion of GPS (WGS84) coordinates from/to CH1995/LV95 (MN95)
 
-[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/antistatique/swisstopo/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/antistatique/swisstopo/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/antistatique/swisstopo/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/antistatique/swisstopo/compare/1.0.1...1.0.2
