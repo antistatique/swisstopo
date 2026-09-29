@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- refactor(converter): deduplicate the shared conversion steps and accept int or float MN03 coordinates
 - fix(composer): bound the php constraint (>=8.4 => ^8.4)
 - docs(readme): use shields.io for the license badge
 - chore(composer): add keywords, support links and sort-packages for Packagist discoverability
