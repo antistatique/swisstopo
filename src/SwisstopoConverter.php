@@ -52,15 +52,15 @@ class SwisstopoConverter
     /**
      * Convert the given Swiss (MN03) coordinate points into WGS notation.
      *
-     * @param int $y
+     * @param float|int $y
      *   The Y Swiss (MN03) coordinate point
-     * @param int $x
+     * @param float|int $x
      *   The X Swiss (MN03) coordinate point
      *
      * @return array{lat: float, long: float}
      *   The array containing WGS latitude & longitude coordinates
      */
-    public static function fromMN03ToWGS(int $y, int $x): array
+    public static function fromMN03ToWGS(float|int $y, float|int $x): array
     {
         return [
             'lat' => self::fromMN03ToWGSLatitude($y, $x),
@@ -100,17 +100,7 @@ class SwisstopoConverter
      */
     private static function fromWGSToMN03y(float $lat, float $long): float
     {
-        // Converts Decimal Degrees to Sexagesimal Degree.
-        $lat = self::degToSex($lat);
-        $long = self::degToSex($long);
-
-        // Convert Decimal Degrees to Seconds of Arc.
-        $lat = self::degToSec($lat);
-        $long = self::degToSec($long);
-
-        // Auxiliary values (% Bern).
-        $lat_aux = ($lat - 169028.66) / 10000.0;
-        $long_aux = ($long - 26782.5) / 10000.0;
+        [$lat_aux, $long_aux] = self::wgsToAuxiliary($lat, $long);
 
         // Process Swiss (MN03) Y calculation.
         return 600072.37
@@ -133,17 +123,7 @@ class SwisstopoConverter
      */
     private static function fromWGSToMN03x(float $lat, float $long): float
     {
-        // Converts Decimal Degrees to Sexagesimal Degree.
-        $lat = self::degToSex($lat);
-        $long = self::degToSex($long);
-
-        // Convert Decimal Degrees to Seconds of Arc.
-        $lat = self::degToSec($lat);
-        $long = self::degToSec($long);
-
-        // Auxiliary values (% Bern).
-        $lat_aux = ($lat - 169028.66) / 10000.0;
-        $long_aux = ($long - 26782.5) / 10000.0;
+        [$lat_aux, $long_aux] = self::wgsToAuxiliary($lat, $long);
 
         // Process Swiss (MN03) X calculation.
         return 200147.07
@@ -167,18 +147,7 @@ class SwisstopoConverter
      */
     private static function fromWGSToMN95North(float $lat, float $long): float
     {
-        // Converts Decimal Degrees to Sexagesimal Degree.
-        $lat = self::degToSex($lat);
-        $long = self::degToSex($long);
-
-        // Convert Decimal Degrees to Seconds of Arc.
-        $phi = self::degToSec($lat);
-        $lambda = self::degToSec($long);
-
-        // Calculate the auxiliary values (differences of latitude and longitude
-        // relative to Bern in the unit[10000"]).
-        $phi_aux = ($phi - 169028.66) / 10000.0;
-        $lambda_aux = ($lambda - 26782.5) / 10000.0;
+        [$phi_aux, $lambda_aux] = self::wgsToAuxiliary($lat, $long);
 
         // Process Swiss (MN95) North calculation.
         return 1200147.07
@@ -202,18 +171,7 @@ class SwisstopoConverter
      */
     private static function fromWGSToMN95East(float $lat, float $long): float
     {
-        // Converts Decimal Degrees to Sexagesimal Degree.
-        $lat = self::degToSex($lat);
-        $long = self::degToSex($long);
-
-        // Convert Decimal Degrees to Seconds of Arc.
-        $phi = self::degToSec($lat);
-        $lambda = self::degToSec($long);
-
-        // Calculate the auxiliary values (differences of latitude and longitude
-        // relative to Bern in the unit[10000"]).
-        $phi_aux = ($phi - 169028.66) / 10000.0;
-        $lambda_aux = ($lambda - 26782.5) / 10000.0;
+        [$phi_aux, $lambda_aux] = self::wgsToAuxiliary($lat, $long);
 
         // Process Swiss (MN95) East calculation.
         return 2600072.37
@@ -236,10 +194,7 @@ class SwisstopoConverter
      */
     public static function fromMN95ToWGSLatitude(float|int $east, float|int $north): float
     {
-        // Convert the projection coordinates E (easting) and N (northing) in MN95
-        // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
-        $y_aux = ((float) $east - 2600000.0) / 1000000.0;
-        $x_aux = ((float) $north - 1200000.0) / 1000000.0;
+        [$y_aux, $x_aux] = self::civilianOffsets((float) $east - 2600000.0, (float) $north - 1200000.0);
 
         // Process latitude calculation.
         $lat = 16.9023892
@@ -249,10 +204,7 @@ class SwisstopoConverter
           - 0.0447 * pow($y_aux, 2) * $x_aux
           - 0.0140 * pow($x_aux, 3);
 
-        // Unit 10000" to 1" and converts seconds to degrees notation.
-        $lat = $lat * 100.0 / 36.0;
-
-        return $lat;
+        return self::arcUnitsToDegrees($lat);
     }
 
     /**
@@ -268,10 +220,7 @@ class SwisstopoConverter
      */
     private static function fromMN95ToWGSLongitude(float|int $east, float|int $north): float
     {
-        // Convert the projection coordinates E (easting) and N (northing) in MN95
-        // into the civilian system (Bern = 0 / 0) and express in the unit 1000 km.
-        $y_aux = ((float) $east - 2600000.0) / 1000000.0;
-        $x_aux = ((float) $north - 1200000.0) / 1000000.0;
+        [$y_aux, $x_aux] = self::civilianOffsets((float) $east - 2600000.0, (float) $north - 1200000.0);
 
         // Process longitude calculation.
         $long = 2.6779094
@@ -280,29 +229,23 @@ class SwisstopoConverter
           + 0.1306 * $y_aux * pow($x_aux, 2)
           - 0.0436 * pow($y_aux, 3);
 
-        // Unit 10000" to 1" and converts seconds to degrees notation.
-        $long = $long * 100.0 / 36.0;
-
-        return $long;
+        return self::arcUnitsToDegrees($long);
     }
 
     /**
      * Convert Swiss (MN03) coordinates y & x to WGS latitude value.
      *
-     * @param float $y
+     * @param float|int $y
      *   The Y Swiss (MN03) coordinate point
-     * @param float $x
+     * @param float|int $x
      *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS latitude
      */
-    public static function fromMN03ToWGSLatitude(float $y, float $x): float
+    public static function fromMN03ToWGSLatitude(float|int $y, float|int $x): float
     {
-        // Convert the projection coordinates y and x in MN03 into the civilian
-        // system (Bern = 0 / 0) and express in the unit [1000 km].
-        $y_aux = ($y - 600000.0) / 1000000.0;
-        $x_aux = ($x - 200000.0) / 1000000.0;
+        [$y_aux, $x_aux] = self::civilianOffsets((float) $y - 600000.0, (float) $x - 200000.0);
 
         // Process latitude calculation.
         $lat = 16.9023892
@@ -312,29 +255,23 @@ class SwisstopoConverter
           - 0.0447 * pow($y_aux, 2) * $x_aux
           - 0.0140 * pow($x_aux, 3);
 
-        // Unit 10000" to 1" and converts seconds to degrees notation.
-        $lat = $lat * 100.0 / 36.0;
-
-        return $lat;
+        return self::arcUnitsToDegrees($lat);
     }
 
     /**
      * Convert Swiss (MN03) coordinates y & x to WGS longitude value.
      *
-     * @param float $y
+     * @param float|int $y
      *   The Y Swiss (MN03) coordinate point
-     * @param float $x
+     * @param float|int $x
      *   The X Swiss (MN03) coordinate point
      *
      * @return float
      *   The converted Swiss (MN03) coordinates to WGS longitude
      */
-    private static function fromMN03ToWGSLongitude(float $y, float $x): float
+    private static function fromMN03ToWGSLongitude(float|int $y, float|int $x): float
     {
-        // Convert the projection coordinates y and x in MN03 into the civilian
-        // system (Bern = 0 / 0) and express in the unit [1000 km].
-        $y_aux = ($y - 600000.0) / 1000000.0;
-        $x_aux = ($x - 200000.0) / 1000000.0;
+        [$y_aux, $x_aux] = self::civilianOffsets((float) $y - 600000.0, (float) $x - 200000.0);
 
         // Process longitude calculation.
         $long = 2.6779094
@@ -343,10 +280,60 @@ class SwisstopoConverter
           + 0.1306 * $y_aux * pow($x_aux, 2)
           - 0.0436 * pow($y_aux, 3);
 
-        // Unit 10000" to 1" and converts seconds to degrees notation.
-        $long = $long * 100.0 / 36.0;
+        return self::arcUnitsToDegrees($long);
+    }
 
-        return $long;
+    /**
+     * Compute the WGS auxiliary values relative to Bern, in the unit [10000"].
+     *
+     * @param float $lat
+     *   The WGS latitude coordinate point in degree
+     * @param float $long
+     *   The WGS longitude coordinate point in degree
+     *
+     * @return array{0: float, 1: float}
+     *   The latitude & longitude auxiliary values
+     */
+    private static function wgsToAuxiliary(float $lat, float $long): array
+    {
+        // Converts Decimal Degrees to Sexagesimal Degree, then to Seconds of Arc.
+        $phi = self::degToSec(self::degToSex($lat));
+        $lambda = self::degToSec(self::degToSex($long));
+
+        return [
+            ($phi - 169028.66) / 10000.0,
+            ($lambda - 26782.5) / 10000.0,
+        ];
+    }
+
+    /**
+     * Express Swiss projection offsets from Bern (0 / 0) in the unit [1000 km].
+     *
+     * @param float $y_offset
+     *   The Y (MN03) or East (MN95) offset from Bern, in meters
+     * @param float $x_offset
+     *   The X (MN03) or North (MN95) offset from Bern, in meters
+     *
+     * @return array{0: float, 1: float}
+     *   The y & x auxiliary values
+     */
+    private static function civilianOffsets(float $y_offset, float $x_offset): array
+    {
+        return [$y_offset / 1000000.0, $x_offset / 1000000.0];
+    }
+
+    /**
+     * Convert the unit 10000" to degrees notation.
+     *
+     * @param float $angle
+     *   The angle in the unit 10000"
+     *
+     * @return float
+     *   The angle in decimal degrees
+     */
+    private static function arcUnitsToDegrees(float $angle): float
+    {
+        return $angle * 100.0 / 36.0;
     }
 
     /**
