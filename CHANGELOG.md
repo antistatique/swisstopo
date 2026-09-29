@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - chore(composer): add keywords, support links and sort-packages for Packagist discoverability
 
+### Security
+- chore(deps-dev): phpunit/phpunit (13.1.14 => 13.3.5)
+- chore(deps-dev): phpunit/php-code-coverage (14.3.0 => 14.3.5)
+- chore(deps-dev): vimeo/psalm (6.16.1 => 6.19.0)
+- chore(deps-dev): friendsofphp/php-cs-fixer (v3.95.18 => v3.95.27)
+
 ## [1.2.1] - 2026-08-14
 ### Fixed
 - ci(workflows): run tests and code styles on pull requests, including those opened from a fork

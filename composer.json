@@ -18,13 +18,13 @@
         "php": ">=8.4"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.21",
+        "friendsofphp/php-cs-fixer": "^3.95.27",
         "php-coveralls/php-coveralls": "^2.1",
         "phpmd/phpmd": "^2.8",
         "phpstan/phpstan-deprecation-rules": "^2.0",
-        "phpunit/php-code-coverage": "^14",
-        "phpunit/phpunit": "^13",
-        "vimeo/psalm": "^6.0"
+        "phpunit/php-code-coverage": "^14.3.5",
+        "phpunit/phpunit": "^13.3.5",
+        "vimeo/psalm": "^6.19"
     },
     "autoload": {
         "psr-4": {
