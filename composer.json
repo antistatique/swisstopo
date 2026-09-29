@@ -20,7 +20,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.95.27",
         "php-coveralls/php-coveralls": "^2.1",
-        "phpmd/phpmd": "^2.8",
+        "phpmd/phpmd": "^2.15",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpunit/php-code-coverage": "^14.3.5",
         "phpunit/phpunit": "^13.3.5",
