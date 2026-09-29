@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - chore(composer): add keywords, support links and sort-packages for Packagist discoverability
 
+### Fixed
+- fix(ci): report coverage to Coveralls from a single matrix leg
+
 ### Security
 - chore(deps-dev): phpunit/phpunit (13.1.14 => 13.3.5)
 - chore(deps-dev): phpunit/php-code-coverage (14.3.0 => 14.3.5)
