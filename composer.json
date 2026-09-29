@@ -1,18 +1,30 @@
 {
     "name": "antistatique/swisstopo",
     "description": "Convert GPS (WGS84) to Swiss (LV03 and LV95) coordinates (and vice versa)",
+    "type": "library",
+    "keywords": [
+        "swisstopo",
+        "switzerland",
+        "coordinates",
+        "wgs84",
+        "lv03",
+        "lv95",
+        "ch1903",
+        "gps",
+        "converter"
+    ],
     "license": "MIT",
     "require": {
         "php": ">=8.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^13",
-        "phpunit/php-code-coverage": "^14",
-        "friendsofphp/php-cs-fixer": "^3.21",
-        "phpmd/phpmd": "^2.8",
+        "friendsofphp/php-cs-fixer": "^3.95.27",
         "php-coveralls/php-coveralls": "^2.1",
-        "vimeo/psalm": "^6.0",
-        "phpstan/phpstan-deprecation-rules": "^2.0"
+        "phpmd/phpmd": "^2.8",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpunit/php-code-coverage": "^14.3.5",
+        "phpunit/phpunit": "^13.3.5",
+        "vimeo/psalm": "^6.19"
     },
     "autoload": {
         "psr-4": {
@@ -24,7 +36,6 @@
             "Antistatique\\Swisstopo\\Tests\\": "tests/"
         }
     },
-    "homepage": "https://github.com/antistatique/swisstopo",
     "authors": [
         {
             "name": "Antistatique SA",
@@ -38,5 +49,13 @@
             "homepage": "http://kevin-wenger.ch",
             "role": "Author & Maintainer"
         }
-    ]
+    ],
+    "homepage": "https://github.com/antistatique/swisstopo",
+    "support": {
+        "issues": "https://github.com/antistatique/swisstopo/issues",
+        "source": "https://github.com/antistatique/swisstopo"
+    },
+    "config": {
+        "sort-packages": true
+    }
 }
