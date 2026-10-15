@@ -19,6 +19,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - chore(deps-dev): phpunit/php-code-coverage (14.3.0 => 14.3.5)
 - chore(deps-dev): vimeo/psalm (6.16.1 => 6.19.0)
 - chore(deps-dev): friendsofphp/php-cs-fixer (v3.95.18 => v3.95.27)
+- chore(deps-dev): phpunit/phpunit (13.1.14 => 13.4.2)
+- chore(deps-dev): friendsofphp/php-cs-fixer (v3.95.18 => v3.95.27)
+- chore(deps-dev): vimeo/psalm (6.16.1 => 6.20.0)
+- chore(deps-dev): phpunit/php-code-coverage (14.3.0 => 14.4.1)
 
 ## [1.2.1] - 2026-08-14
 ### Fixed
