@@ -10,11 +10,20 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
+env:
+  # Coveralls closes a build as soon as it accepts a job for it, so every
+  # matrix leg after the first fails. The coverage is identical on every PHP
+  # version anyway - collect and report it from exactly one of them.
+  COVERAGE_PHP_VERSION: '8.5'
+  COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   tests:
     runs-on: ubuntu-latest
 
     strategy:
+      # One PHP version failing should not hide the result of the others.
+      fail-fast: false
       matrix:
         php-versions: ['8.4', '8.5']
     steps:
@@ -23,15 +32,20 @@ jobs:
         with:
           php-version: ${{ matrix.php-versions }}
           tools: composer:v2
+          coverage: ${{ matrix.php-versions == env.COVERAGE_PHP_VERSION && 'xdebug' || 'none' }}
       - uses: actions/checkout@v7
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-versions }}
           version: 2
-      - run: XDEBUG_MODE=coverage ./vendor/bin/phpunit
+      - name: Run tests
+        if: matrix.php-versions != env.COVERAGE_PHP_VERSION
+        run: ./vendor/bin/phpunit --no-coverage
+      - name: Run tests with coverage
+        if: matrix.php-versions == env.COVERAGE_PHP_VERSION
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit
       - name: Upload coverage results to Coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: matrix.php-versions == env.COVERAGE_PHP_VERSION
         run: |
           composer global require php-coveralls/php-coveralls
           php-coveralls --coverage_clover=build/logs/clover.xml -v

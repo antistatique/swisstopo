@@ -58,7 +58,7 @@ It can modernize your code (like converting the pow function to the ** operator 
 Detect overcomplicated expressions & Unused parameters, methods, properties
 
 ```bash
-./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
+./vendor/bin/phpmd analyze ./ --format text --ruleset ./phpmd.xml --suffixes=php --suffixes=inc --suffixes=test --exclude=vendor --exclude=bin --exclude=tests
 ```
 
 ### Checks compatibility with PHP interpreter versions

@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-10-15
+### Changed
+- refactor(converter): deduplicate the shared conversion steps and accept int or float MN03 coordinates
+- fix(composer): bound the php constraint (>=8.4 => ^8.4)
+- docs(readme): use shields.io for the license badge
+- chore(composer): add keywords, support links and sort-packages for Packagist discoverability
+
+### Fixed
+- fix(ci): report coverage to Coveralls from a single matrix leg
+
+### Security
+- chore(deps-dev): phpunit/phpunit (13.1.14 => 13.4.2)
+- chore(deps-dev): phpunit/php-code-coverage (14.3.0 => 14.4.1)
+- chore(deps-dev): vimeo/psalm (6.16.1 => 6.20.0)
+- chore(deps-dev): friendsofphp/php-cs-fixer (v3.95.18 => v3.95.27)
+- chore(deps-dev): phpmd/phpmd (2.15.0 => 3.0.0)
+
 ## [1.2.1] - 2026-08-14
 ### Fixed
 - ci(workflows): run tests and code styles on pull requests, including those opened from a fork
@@ -96,7 +113,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - allow conversion of GPS (WGS84) coordinates from/to CH1903/LV03 (MN03)
 - allow conversion of GPS (WGS84) coordinates from/to CH1995/LV95 (MN95)
 
-[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.2.1...HEAD
+[Unreleased]: https://github.com/antistatique/swisstopo/compare/1.2.2...HEAD
+[1.2.2]: https://github.com/antistatique/swisstopo/compare/1.2.1...1.2.2
 [1.2.1]: https://github.com/antistatique/swisstopo/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/antistatique/swisstopo/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/antistatique/swisstopo/compare/1.0.2...1.1.0
