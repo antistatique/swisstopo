@@ -2,7 +2,7 @@ echo "\n🚔  \033[0;32mRunning Code Sniffer Symfony for /public ...\033[0m"
 ./vendor/bin/php-cs-fixer fix --dry-run --format=checkstyle
 
 echo "\n💩  \033[0;32mRunning PHP Mess Detector ...\033[0m"
-./vendor/bin/phpmd ./ text ./phpmd.xml --suffixes php,inc,test --exclude vendor,bin,tests
+./vendor/bin/phpmd analyze ./ --format text --ruleset ./phpmd.xml --suffixes=php --suffixes=inc --suffixes=test --exclude=vendor --exclude=bin --exclude=tests
 
 echo "\n🍫  \033[0;32mRunning PhpCodeFixer ...\033[0m"
 ./vendor/bin/phpcf --target 7.3 --file-extensions php,inc,test ./
