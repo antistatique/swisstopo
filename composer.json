@@ -24,7 +24,7 @@
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpunit/php-code-coverage": "^14.3.5",
         "phpunit/phpunit": "^13.4.1",
-        "vimeo/psalm": "^6.19"
+        "vimeo/psalm": "^6.20"
     },
     "autoload": {
         "psr-4": {
